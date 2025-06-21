@@ -33,15 +33,19 @@
                             </flux:table.cell>
                             <flux:table.cell>P{{ $patient->id }}</flux:table.cell>
                             <flux:table.cell >
-                                {{ $patient->nama_lengkap }}
-                                {{-- <flux:link variant="subtle"
+                                <flux:link variant="subtle"
                                     href="{{ route('patient.show', ['patient' => $patient->id])}}">
-                                    {{ $patient->nama }}
-                                </flux:link> --}}
+                                    {{ $patient->nama_lengkap }}
+                                </flux:link>
                             </flux:table.cell>
                             <flux:table.cell>
-                                <flux:button size="xs" class="me-3 my-0">Periksa</flux:button>
-                                <flux:button size="xs">Lihat</flux:button>
+                                <flux:button
+                                    size="xs"
+                                    class="me-3 my-0"
+                                    href="#">
+                                    Periksa
+                                </flux:button>
+                                <flux:button size="xs">Edit</flux:button>
                             </flux:table.cell>
 
                         </flux:table.row>
