@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Patients\CreatePatient;
 use App\Livewire\Patients\ListPatient;
 use App\Livewire\Patients\ShowPatient;
 use App\Livewire\Settings\Appearance;
@@ -19,6 +20,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('pasien')->name('patient.')->group(function () {
         Route::get('/', ListPatient::class)->name('index');
+        Route::get('/pendaftaran', CreatePatient::class)->name('create');
         Route::get('/{patient}', ShowPatient::class)->name('show');
     });
 

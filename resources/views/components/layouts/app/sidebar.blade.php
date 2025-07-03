@@ -15,6 +15,13 @@
                 <flux:navlist.group heading="Informasi" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                     <flux:navlist.item
+                        icon="user-plus"
+                        :href="route('patient.create')"
+                        :current="request()->routeIs('patient.create')"
+                        wire:navigate>
+                        Pendaftaran Pasien Baru
+                    </flux:navlist.item>
+                    <flux:navlist.item
                         icon="list-bullet"
                         :href="route('patient.index')"
                         :current="request()->routeIs('patient.index')"
