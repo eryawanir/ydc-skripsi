@@ -34,7 +34,7 @@
                             <flux:table.cell>P{{ $patient->id }}</flux:table.cell>
                             <flux:table.cell >
                                 <flux:link variant="subtle"
-                                    href="{{ route('patient.show', ['patient' => $patient->id])}}">
+                                    href="{{ route('admin.patient.show', ['patient' => $patient->id])}}">
                                     {{ $patient->nama_lengkap }}
                                 </flux:link>
                             </flux:table.cell>

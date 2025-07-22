@@ -16,22 +16,22 @@
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                     <flux:navlist.item
                         icon="user-plus"
-                        :href="route('patient.create')"
-                        :current="request()->routeIs('patient.create')"
+                        :href="route('admin.patient.create')"
+                        :current="request()->routeIs('admin.patient.create')"
                         wire:navigate>
                         Pendaftaran Pasien Baru
                     </flux:navlist.item>
                     <flux:navlist.item
                         icon="list-bullet"
-                        :href="route('patient.index')"
-                        :current="request()->routeIs('patient.index')"
+                        :href="route('admin.patient.index')"
+                        :current="request()->routeIs('admin.patient.index')"
                         wire:navigate>
                         Pasien Lama
                     </flux:navlist.item>
                     <flux:navlist.item
                         icon="magnifying-glass"
-                        :href="route('levenshtein.search')"
-                        :current="request()->routeIs('levenshtein.search')"
+                        :href="route('admin.levenshtein.search')"
+                        :current="request()->routeIs('admin.levenshtein.search')"
                         wire:navigate>
                         Pencarian Levenshtein
                     </flux:navlist.item>

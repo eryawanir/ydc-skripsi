@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\TipeDokter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,4 +31,8 @@ class Dokter extends Model
     {
         return $this->hasOne(User::class);
     }
+
+    protected $casts = [
+        'tipe_dokter' => TipeDokter::class,
+    ];
 }
