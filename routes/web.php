@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Patients\CreatePatient;
+use App\Livewire\Patients\LevenshteinListPatient;
 use App\Livewire\Patients\ListPatient;
 use App\Livewire\Patients\ShowPatient;
 use App\Livewire\Settings\Appearance;
@@ -22,6 +23,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', ListPatient::class)->name('index');
         Route::get('/pendaftaran', CreatePatient::class)->name('create');
         Route::get('/{patient}', ShowPatient::class)->name('show');
+    });
+
+    Route::prefix('levenshtein')->name('levenshtein.')->group(function () {
+        Route::get('/cari-pasien', LevenshteinListPatient::class)->name('search');
     });
 
     Route::redirect('settings', 'settings/profile');

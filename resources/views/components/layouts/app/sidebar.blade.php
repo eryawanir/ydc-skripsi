@@ -28,6 +28,13 @@
                         wire:navigate>
                         Pasien Lama
                     </flux:navlist.item>
+                    <flux:navlist.item
+                        icon="magnifying-glass"
+                        :href="route('levenshtein.search')"
+                        :current="request()->routeIs('levenshtein.search')"
+                        wire:navigate>
+                        Pencarian Levenshtein
+                    </flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 
