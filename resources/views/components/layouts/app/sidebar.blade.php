@@ -12,8 +12,7 @@
             </a>
 
             <flux:navlist variant="outline">
-                <flux:navlist.group heading="Informasi" class="grid">
-                    <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                <flux:navlist.group heading="KELOLA PASIEN" class="grid">
                     <flux:navlist.item
                         icon="user-plus"
                         :href="route('admin.patient.create')"
@@ -147,7 +146,7 @@
         </flux:header>
 
         {{ $slot }}
-
+        <flux:toast />
         @fluxScripts
     </body>
 </html>
