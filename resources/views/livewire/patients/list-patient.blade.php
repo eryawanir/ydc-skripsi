@@ -1,4 +1,5 @@
 <div>
+    {{-- HEADER KONTEN --}}
     <div class="relative mb-4 w-full">
         <flux:heading size="xl" level="1">Daftar Pasien</flux:heading>
         <flux:subheading size="lg" class="mb-3">
@@ -6,16 +7,16 @@
         </flux:subheading>
         <flux:separator variant="subtle" />
     </div>
-{{--
-    <flux:callout class="mb-2" variant="success" icon="check-circle"
-    heading="Your account is verified and ready to use." /> --}}
 
+    {{-- KONTEN --}}
     <div class="max-w-xl">
+        {{-- SEARCH --}}
         <flux:input
             icon="magnifying-glass"
             placeholder="Cari Pasien"
             wire:model.live.debounce.500ms="searchKeyword"
          />
+         {{-- TABEL --}}
         <div class="px-3">
             <flux:table class="max-w-1.5">
                 <flux:table.columns>

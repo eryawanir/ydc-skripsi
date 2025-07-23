@@ -2,6 +2,7 @@
 
 use App\Enums\UserRole;
 use App\Http\Middleware\CheckRole;
+use App\Livewire\Admin\ManageUsers;
 use App\Livewire\Patients\CreatePatient;
 use App\Livewire\Patients\LevenshteinListPatient;
 use App\Livewire\Patients\ListPatient;
@@ -37,6 +38,8 @@ Route::prefix('admin')
     ->middleware(['auth', CheckRole::class . ':' . UserRole::Admin->value])
     ->name('admin.')
     ->group(function () {
+
+        Route::get('/kelola-akun', ManageUsers::class)->name('users.index');
 
         Route::prefix('pasien')->name('patient.')->group(function () {
             Route::get('/', ListPatient::class)->name('index');
