@@ -12,6 +12,7 @@ use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use App\Livewire\Admin\UserIndex;
 use App\Livewire\Manajemen\DokterIndex;
+use App\Livewire\Patients\DaftarPeriksaPasien;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +45,8 @@ Route::prefix('admin')
         Route::prefix('pasien')->name('patient.')->group(function () {
             Route::get('/', ListPatient::class)->name('index');
             Route::get('/pendaftaran', CreatePatient::class)->name('create');
+            Route::get('/daftar-periksa', DaftarPeriksaPasien::class)
+            ->name('daftar-periksa');
             Route::get('/{patient}', ShowPatient::class)->name('show');
         });
 

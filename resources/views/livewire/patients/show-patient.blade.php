@@ -57,6 +57,51 @@
                 </flux:table.row>
             </flux:table.rows>
         </flux:table>
+        <div class="flex justify-end mt-6">
+            <flux:modal.trigger name="daftar-periksa">
+                <flux:button>Daftar Periksa</flux:button>
+            </flux:modal.trigger>
+        </div>
     </div>
+
+    {{-- MODAL DAFTAR PERIKSA  --}}
+    <flux:modal name="daftar-periksa" title="Daftar Periksa" class="max-w-xl">
+        <form wire:submit.prevent="simpanPeriksa" class="space-y-4">
+                <div>
+            <flux:heading size="lg">Daftar Periksa</flux:heading>
+            <flux:text class="mt-2">Pendaftaran pemeriksaan atas nama {{ $patient->nama_lengkap }}</flux:text>
+        </div>
+            <flux:input
+                wire:model.defer="waktuKedatangan"
+                label="Waktu Kedatangan"
+                type="datetime-local"
+            />
+
+            <flux:textarea
+                wire:model.defer="keluhan"
+                label="Keluhan"
+                placeholder="Masukkan keluhan pasien"
+            />
+
+            <flux:select
+                wire:model.defer="dokterId"
+                label="Pilih Dokter"
+            >
+                <option value="">-- Pilih Dokter --</option>
+                @foreach (\App\Models\Dokter::all() as $dokter)
+                    <option value="{{ $dokter->id }}">{{ $dokter->nama }}</option>
+                @endforeach
+            </flux:select>
+
+            <div class="flex justify-end mt-4">
+                <flux:button type="submit" variant="primary">
+                    Daftar
+                </flux:button>
+            </div>
+        </form>
+    </flux:modal>
+
+    {{-- MODAL DAFTAR PERIKSA END --}}
+
 </div>
 
