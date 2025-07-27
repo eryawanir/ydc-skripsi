@@ -9,9 +9,9 @@ class LevenshteinListPatient extends Component
 {
     public string $kataKunci = '';
     public array  $hasil     = [];
+    public int $threshold = 3; // toleransi salah eja per-kata
 
     /*  Konstanta algoritma  */
-    private const THRESHOLD      = 4; // toleransi salah eja per-kata
     private const PENALTI_GAGAL  = 3; // penalti jika kata input tak punya pasangan ≤ THRESHOLD
     private const PENALTI_SISA   = 1; // penalti per token pasien yang tak terpakai
      private const AMBANG_SKOR   = 5;
@@ -52,7 +52,7 @@ $scored = Patient::query()
     ->map(fn ($p) => $this->hitungSkor($p, $tokenInput))
 
     /* ——— FILTER BERDASARKAN SKOR ——— */
-    ->filter(fn ($row) => $row['skor'] <= self::AMBANG_SKOR)
+    ->filter(fn ($row) => $row['skor'] <= self::AMBANG_SKOR && $row['cocok'] > 0) // <- Tambahan filter cocok > 0
 
     /* ——— URUT & LIMIT ——— */
     ->sortBy([
@@ -88,7 +88,7 @@ $scored = Patient::query()
                 }
             }
 
-            if ($min <= self::THRESHOLD) {
+            if ($min <= $this->threshold) {
                 $skor += $min;
                 $tokenTerpakai[$idx] = true;
             } else {

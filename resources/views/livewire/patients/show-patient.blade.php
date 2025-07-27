@@ -40,10 +40,6 @@
                     <flux:table.cell>{{ $patient->tempat_lahir }}, {{ $patient->tanggal_lahir }}</flux:table.cell>
                 </flux:table.row>
                 <flux:table.row>
-                    <flux:table.cell>Umur</flux:table.cell>
-                    <flux:table.cell>{{ $patient->umur }}</flux:table.cell>
-                </flux:table.row>
-                <flux:table.row>
                     <flux:table.cell>No Handphone</flux:table.cell>
                     <flux:table.cell>{{ $patient->no_hp }}</flux:table.cell>
                 </flux:table.row>
