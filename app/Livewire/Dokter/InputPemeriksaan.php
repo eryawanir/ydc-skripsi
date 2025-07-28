@@ -27,6 +27,10 @@ class InputPemeriksaan extends Component
         $this->periksaId = $periksaId;
         $this->periksa = Periksa::with('patient')->findOrFail($periksaId);
         $this->diagnosa = $this->periksa->diagnosa ?? '';
+
+            if ($this->periksa->status !== 'sedang diperiksa') {
+        $this->periksa->update(['status' => 'sedang diperiksa']);
+    }
     }
 
 public function simpanTindakan()
@@ -64,28 +68,14 @@ public function simpan()
 
     foreach ($this->tindakanList as $t) {
         $layanan = Layanan::find($t['layanan_id']);
-        $harga   = $layanan->harga;
-        $kategori = strtolower($layanan->kategori); // pastikan ada
 
-        // Hitung persentase fee dokter
-        $persentase = match ($kategori) {
-            'umum' => 0.40,
-            'bedah' => 0.60,
-            'odon' => 0.70,
-            'lab' => 0.55,
-            default => 0.40,
-        };
 
-        $feeDokter = round($harga * $persentase);
-        $feeKlinik = $harga - $feeDokter;
+
 
         Tindakan::create([
             'periksa_id'         => $this->periksa->id,
             'layanan_id'         => $layanan->id,
             'lokasi'             => $t['lokasi'],
-            'uang_masuk'         => $harga,
-            'fee_dokter'         => $feeDokter,
-            'pendapatan_klinik'  => $feeKlinik,
         ]);
     }
 
@@ -102,6 +92,7 @@ public function simpan()
 
     public function render()
     {
+
         return view('livewire.dokter.input-pemeriksaan', [
         'layanans' => $this->layanans,
         'periksa' => $this->periksa,

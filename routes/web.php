@@ -3,6 +3,7 @@
 use App\Enums\UserRole;
 use App\Http\Middleware\CheckRole;
 use App\Livewire\Admin\ManageUsers;
+use App\Livewire\Admin\ProsesPembayaran;
 use App\Livewire\Patients\CreatePatient;
 use App\Livewire\Patients\LevenshteinListPatient;
 use App\Livewire\Patients\ListPatient;
@@ -49,6 +50,7 @@ Route::prefix('admin')
             Route::get('/pendaftaran', CreatePatient::class)->name('create');
             Route::get('/daftar-periksa', DaftarPeriksaPasien::class)
             ->name('daftar-periksa');
+            Route::get('/proses-pembayaran/{periksaId}', ProsesPembayaran::class)->name('proses-pembayaran');
             Route::get('/{patient}', ShowPatient::class)->name('show');
         });
 

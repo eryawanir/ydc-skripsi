@@ -3,7 +3,7 @@
     <div class="relative mb-4 w-full">
         <flux:heading size="xl" level="1">Daftar Periksa Pasien</flux:heading>
         <flux:subheading size="lg" class="mb-3">
-            Menampilkan pasien yang telah mendaftar untuk pemeriksaan pada hari ini
+            Menampilkan pasien yang telah mendaftar untuk pemeriksaan
         </flux:subheading>
         <flux:separator variant="subtle" />
     </div>
@@ -24,7 +24,7 @@
                 @forelse ($periksas as $periksa)
                     <flux:table.row :key="$periksa->id">
                         <flux:table.cell>{{ $loop->iteration }}</flux:table.cell>
-                        <flux:table.cell>{{ $periksa->patient->nama_lengkap }} gdigd gdag</flux:table.cell>
+                        <flux:table.cell>{{ $periksa->patient->nama_lengkap }}</flux:table.cell>
                         <flux:table.cell>{{ $periksa->dokter->nama ?? '-' }}</flux:table.cell>
                         <flux:table.cell class="flex-1 whitespace-normal">{{ $periksa->keluhan }}</flux:table.cell>
                         <flux:table.cell>
@@ -37,7 +37,7 @@
                                     size="xs"
                                     variant="primary"
                                     icon:trailing="arrow-right"
-                                    {{-- href="{{ route('admin.billing.proses', ['periksa' => $periksa->id]) }}" --}}
+                                    href="{{ route('admin.patient.proses-pembayaran', ['periksaId' => $periksa->id]) }}"
                                 >
                                     Lanjut ke Billing
                                 </flux:button>
