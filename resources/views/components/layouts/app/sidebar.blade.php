@@ -11,6 +11,7 @@
                 <x-app-logo />
             </a>
 
+            @if(auth()->user()->role->name == 'Admin')
             <flux:navlist variant="outline">
                 <flux:navlist.group heading="KELOLA PASIEN" class="grid">
                     <flux:navlist.item
@@ -34,8 +35,31 @@
                         wire:navigate>
                         Pencarian Levenshtein
                     </flux:navlist.item>
+                    <flux:navlist.item
+                        icon="stethoscope"
+                        :href="route('admin.patient.daftar-periksa')"
+                        :current="request()->routeIs('admin.patient.daftar-periksa')"
+                        wire:navigate>
+                        Daftar Periksa
+                    </flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
+            @endif
+
+            @if(auth()->user()->role->name == 'Dokter')
+            <flux:navlist variant="outline">
+                <flux:navlist.group heading="AKUN DOKTER" class="grid">
+
+                    <flux:navlist.item
+                        icon="stethoscope"
+                        :href="route('dokter.patient.daftar-periksa')"
+                        :current="request()->routeIs('dokter.patient.daftar-periksa')"
+                        wire:navigate>
+                        Daftar Periksa
+                    </flux:navlist.item>
+                </flux:navlist.group>
+            </flux:navlist>
+            @endif
 
             <flux:spacer />
 

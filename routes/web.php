@@ -11,6 +11,7 @@ use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use App\Livewire\Admin\UserIndex;
+use App\Livewire\Dokter\DaftarPeriksa;
 use App\Livewire\Manajemen\DokterIndex;
 use App\Livewire\Patients\DaftarPeriksaPasien;
 use Illuminate\Support\Facades\Auth;
@@ -70,9 +71,10 @@ Route::prefix('dokter')
     ->middleware(['auth', CheckRole::class . ':' . UserRole::Dokter->value])
     ->name('dokter.')
     ->group(function () {
-        Route::get('/profil', function () {
-            return 'Halaman Dokter - Role: ' . Auth::user()->role;
-        })->name('profil');
+        Route::prefix('pasien')->name('patient.')->group(function () {
+            Route::get('/daftar-periksa', DaftarPeriksa::class)
+            ->name('daftar-periksa');
+        });
     });
 
 require __DIR__.'/auth.php';

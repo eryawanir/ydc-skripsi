@@ -3,7 +3,7 @@
     <div class="relative mb-4 w-full">
         <flux:heading size="xl" level="1">Daftar Periksa Pasien</flux:heading>
         <flux:subheading size="lg" class="mb-3">
-            Menampilkan pasien yang telah mendaftar untuk pemeriksaan
+            Menampilkan pasien yang telah mendaftar untuk pemeriksaan pada hari ini
         </flux:subheading>
         <flux:separator variant="subtle" />
     </div>
