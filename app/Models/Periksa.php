@@ -31,9 +31,9 @@ class Periksa extends Model
         return $this->belongsTo(Dokter::class);
     }
 
-    // Relasi ke rekam medis (jika sudah dibuat)
-    // public function rekamMedis()
-    // {
-    //     return $this->hasOne(RekamMedis::class);
-    // }
+ public function tindakan()
+{
+    return $this->hasMany(Tindakan::class);
+}
+
 }

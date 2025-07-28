@@ -13,7 +13,7 @@ class DaftarPeriksaPasien extends Component
         $periksas = Periksa::with(['patient', 'dokter'])
         ->where('status', '!=', 'selesai')         // Jangan tampilkan jika sudah bayar
         ->orderBy('waktu_kedatangan', 'asc')     // Urutkan dari waktu kedatangan paling awal
-        ->paginate(7);
+        ->get();
 
         return view('livewire.patients.daftar-periksa-pasien', [
             'periksas' => $periksas,

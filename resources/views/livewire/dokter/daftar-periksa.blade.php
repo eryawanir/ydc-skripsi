@@ -33,7 +33,7 @@
         <flux:button
             size="xs"
             variant="outline"
-            {{-- wire:click="mulaiPeriksa({{ $periksa->id }})" --}}
+            :href="route('dokter.patient.input-pemeriksaan', ['periksaId' => $periksa->id])"
         >
             Mulai Periksa
         </flux:button>
@@ -42,7 +42,7 @@
             size="xs"
             variant="primary"
             icon:trailing="arrow-right"
-            {{-- wire:click="lanjutPeriksa({{ $periksa->id }})" --}}
+             :href="route('dokter.patient.input-pemeriksaan', ['periksaId' => $periksa->id])"
         >
             Lanjut Periksa
         </flux:button>

@@ -23,7 +23,7 @@
             <flux:table.rows>
                 @forelse ($periksas as $periksa)
                     <flux:table.row :key="$periksa->id">
-                        <flux:table.cell>{{ $loop->iteration + ($periksas->firstItem() - 1) }}</flux:table.cell>
+                        <flux:table.cell>{{ $loop->iteration }}</flux:table.cell>
                         <flux:table.cell>{{ $periksa->patient->nama_lengkap }} gdigd gdag</flux:table.cell>
                         <flux:table.cell>{{ $periksa->dokter->nama ?? '-' }}</flux:table.cell>
                         <flux:table.cell class="flex-1 whitespace-normal">{{ $periksa->keluhan }}</flux:table.cell>
@@ -56,7 +56,6 @@
             </flux:table.rows>
         </flux:table>
 
-        {{-- PAGINATION --}}
-        <flux:pagination :paginator="$periksas" />
+
     </div>
 </div>
