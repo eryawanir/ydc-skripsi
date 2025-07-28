@@ -15,6 +15,7 @@ use App\Livewire\Admin\UserIndex;
 use App\Livewire\Dokter\DaftarPeriksa;
 use App\Livewire\Dokter\InputPemeriksaan;
 use App\Livewire\Manajemen\DokterIndex;
+use App\Livewire\Manajemen\SortirBagihasil;
 use App\Livewire\Patients\DaftarPeriksaPasien;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -64,9 +65,7 @@ Route::prefix('manajemen')
     ->middleware(['auth', CheckRole::class . ':' . UserRole::Manajemen->value])
     ->name('manajemen.')
     ->group(function () {
-        Route::get('/dokters', function () {
-            return 'Halaman Manajemen - Role: ' . Auth::user()->role;
-        })->name('dokters.index');
+        Route::get('/sortir-bagihsil', SortirBagihasil::class)->name('sortir-bagihasil');
     });
 
 // ---------------------- DOKTER AREA ---------------------

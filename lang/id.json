@@ -46,4 +46,11 @@
     "Verify Email Address": "Verifikasi Alamat Surel",
     "Whoops!": "Aduh!",
     "You are receiving this email because we received a password reset request for your account.": "Anda menerima surel ini karena kami menerima permintaan pengaturan ulang kata sandi untuk akun anda."
+     ,"Today": "Hari Ini",
+     "Yesterday": "Kemarin",
+  "This Week": "Minggu Ini",
+  "Last 7 Days": "7 Hari Terakhir",
+  "This Month": "Bulan Ini",
+  "Year to Date": "Sejak Awal Tahun",
+  "All Time": "Sepanjang Waktu"
 }

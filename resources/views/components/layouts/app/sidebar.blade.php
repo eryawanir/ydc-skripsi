@@ -60,6 +60,20 @@
                 </flux:navlist.group>
             </flux:navlist>
             @endif
+            @if(auth()->user()->role->name == 'Manajemen')
+            <flux:navlist variant="outline">
+                <flux:navlist.group heading="AKUN DOKTER" class="grid">
+
+                    <flux:navlist.item
+                        icon="document-currency-dollar"
+                        :href="route('manajemen.sortir-bagihasil')"
+                        :current="request()->routeIs('manajemen.sortir-bagihasil')"
+                        wire:navigate>
+                        Sortir Bagi Hasil
+                    </flux:navlist.item>
+                </flux:navlist.group>
+            </flux:navlist>
+            @endif
 
             <flux:spacer />
 
