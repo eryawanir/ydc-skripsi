@@ -71,6 +71,13 @@
                         wire:navigate>
                         Sortir Bagi Hasil
                     </flux:navlist.item>
+                    <flux:navlist.item
+                        icon="shield-plus"
+                        :href="route('manajemen.kelola-layanan')"
+                        :current="request()->routeIs('manajemen.kelola-layanan')"
+                        wire:navigate>
+                        Kelola Layanan
+                    </flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
             @endif
