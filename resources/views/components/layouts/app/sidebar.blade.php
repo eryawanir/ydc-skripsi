@@ -62,7 +62,7 @@
             @endif
             @if(auth()->user()->role->name == 'Manajemen')
             <flux:navlist variant="outline">
-                <flux:navlist.group heading="AKUN DOKTER" class="grid">
+                <flux:navlist.group heading="AKUN MANAJEMEN" class="grid">
 
                     <flux:navlist.item
                         icon="document-currency-dollar"
@@ -77,6 +77,20 @@
                         :current="request()->routeIs('manajemen.kelola-layanan')"
                         wire:navigate>
                         Kelola Layanan
+                    </flux:navlist.item>
+                    <flux:navlist.item
+                        icon="user-group"
+                        :href="route('manajemen.kelola-dokter')"
+                        :current="request()->routeIs('manajemen.kelola-dokter')"
+                        wire:navigate>
+                        Kelola Dokter
+                    </flux:navlist.item>
+                    <flux:navlist.item
+                        icon="users"
+                        :href="route('manajemen.kelola-layanan')"
+                        :current="request()->routeIs('manajemen.kelola-layanan')"
+                        wire:navigate>
+                        Kelola Akun
                     </flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>

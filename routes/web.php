@@ -15,6 +15,7 @@ use App\Livewire\Admin\UserIndex;
 use App\Livewire\Dokter\DaftarPeriksa;
 use App\Livewire\Dokter\InputPemeriksaan;
 use App\Livewire\Manajemen\DokterIndex;
+use App\Livewire\Manajemen\KelolaDokter;
 use App\Livewire\Manajemen\KelolaLayanan;
 use App\Livewire\Manajemen\SortirBagihasil;
 use App\Livewire\Patients\DaftarPeriksaPasien;
@@ -68,6 +69,7 @@ Route::prefix('manajemen')
     ->group(function () {
         Route::get('/sortir-bagihasil', SortirBagihasil::class)->name('sortir-bagihasil');
         Route::get('/kelola-layanan', KelolaLayanan::class)->name('kelola-layanan');
+        Route::get('/kelola-dokter', KelolaDokter::class)->name('kelola-dokter');
     });
 
 // ---------------------- DOKTER AREA ---------------------
