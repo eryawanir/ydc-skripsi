@@ -87,8 +87,8 @@
                     </flux:navlist.item>
                     <flux:navlist.item
                         icon="users"
-                        :href="route('manajemen.kelola-layanan')"
-                        :current="request()->routeIs('manajemen.kelola-layanan')"
+                        :href="route('manajemen.kelola-akun')"
+                        :current="request()->routeIs('manajemen.kelola-akun')"
                         wire:navigate>
                         Kelola Akun
                     </flux:navlist.item>

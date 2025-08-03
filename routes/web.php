@@ -46,7 +46,7 @@ Route::prefix('admin')
     ->name('admin.')
     ->group(function () {
 
-        Route::get('/kelola-akun', ManageUsers::class)->name('users.index');
+
 
         Route::prefix('pasien')->name('patient.')->group(function () {
             Route::get('/', ListPatient::class)->name('index');
@@ -70,6 +70,7 @@ Route::prefix('manajemen')
         Route::get('/sortir-bagihasil', SortirBagihasil::class)->name('sortir-bagihasil');
         Route::get('/kelola-layanan', KelolaLayanan::class)->name('kelola-layanan');
         Route::get('/kelola-dokter', KelolaDokter::class)->name('kelola-dokter');
+        Route::get('/kelola-akun', ManageUsers::class)->name('kelola-akun');
     });
 
 // ---------------------- DOKTER AREA ---------------------
