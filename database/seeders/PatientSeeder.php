@@ -828,7 +828,7 @@ $patients3 = [
         'alamat' => 'Margahayu No. 85',
     ],
     [
-        'nama_lengkap' => 'M. Sarengat',
+        'nama_lengkap' => 'Mochamad Sarengat',
         'jenis_kelamin' => 'L',
         'umur' => '31',
         'tempat_lahir' => 'Bandung',
@@ -927,7 +927,7 @@ $patients3 = [
         'alamat' => 'Grand Cibubur No. 104',
     ],
     [
-        'nama_lengkap' => 'M. Arif Harfiyanto',
+        'nama_lengkap' => 'Muhamad Arif Harfiyanto',
         'jenis_kelamin' => 'L',
         'umur' => '45',
         'tempat_lahir' => 'Bekasi',
@@ -970,17 +970,7 @@ $patients3 = [
         'nik' => null,
         'alamat' => 'Komplek Bojong No. 50',
     ],
-    [
-        'nama_lengkap' => 'Viki Kumala Putri',
-        'jenis_kelamin' => 'P',
-        'umur' => '33',
-        'tempat_lahir' => 'Tangerang',
-        'tanggal_lahir' => '1992-03-01',
-        'created_at' => Carbon::create(2024, 11, 3),
-        'no_hp' => '086511859501',
-        'nik' => null,
-        'alamat' => 'Griya Cileungsi No. 107',
-    ],
+
     [
         'nama_lengkap' => 'Vika Kumala Putri',
         'jenis_kelamin' => 'P',
@@ -1378,7 +1368,7 @@ $patients3 = [
         'alamat' => 'Griya Cileungsi No. 74',
     ],
     [
-        'nama_lengkap' => 'Ach. Moehaimin Alwi',
+        'nama_lengkap' => 'Achmad Moehaimin Alwi',
         'jenis_kelamin' => 'L',
         'umur' => '29',
         'tempat_lahir' => 'Tangerang',
@@ -1519,17 +1509,6 @@ $patients3 = [
         'no_hp' => '081767149651',
         'nik' => null,
         'alamat' => 'Margahayu No. 65',
-    ],
-    [
-        'nama_lengkap' => 'Sudarmi',
-        'jenis_kelamin' => 'P',
-        'umur' => '33',
-        'tempat_lahir' => 'Semarang',
-        'tanggal_lahir' => '1992-03-23',
-        'created_at' => Carbon::create(2024, 11, 3),
-        'no_hp' => '084961303704',
-        'nik' => null,
-        'alamat' => 'Komplek Bojong No. 103',
     ],
     [
         'nama_lengkap' => 'Siti Zaenap',
@@ -1741,7 +1720,7 @@ $patients3 = [
         'alamat' => 'Margahayu No. 1',
     ],
     [
-        'nama_lengkap' => 'Ibnu Mirza Hamizan Alfaeyza',
+        'nama_lengkap' => 'Mirza Hamizan Alfaeyza',
         'jenis_kelamin' => 'L',
         'umur' => '29',
         'tempat_lahir' => 'Bogor',
