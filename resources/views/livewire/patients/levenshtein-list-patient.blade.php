@@ -60,7 +60,7 @@
                                 <flux:button
                                     size="xs"
                                     class="me-3 my-0"
-                                    href="{{ route('admin.patient.show', ['patient' => $pasien['id']]) }}">
+                                    href="{{ route('admin.patient.show', ['patient' => $pasien['id']]) }}" wire:navigate>
                                     Pilih
                                 </flux:button>
                             </flux:table.cell>

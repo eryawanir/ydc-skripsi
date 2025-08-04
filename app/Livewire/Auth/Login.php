@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Auth;
 
+use App\Enums\UserRole;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
@@ -43,7 +44,15 @@ class Login extends Component
         RateLimiter::clear($this->throttleKey());
         Session::regenerate();
 
-        $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+        if (Auth::user()->role->value ===  UserRole::Admin->value){
+            $this->redirectIntended(default: route('admin.patient.create', absolute: false), navigate: true);
+        }
+        if (Auth::user()->role->value === UserRole::Dokter->value){
+            $this->redirectIntended(default: route('dokter.patient.daftar-periksa', absolute: false), navigate: true);
+        }
+        if (Auth::user()->role->value === UserRole::Manajemen->value){
+            $this->redirectIntended(default: route('manajemen.sortir-bagihasil', absolute: false), navigate: true);
+        }
     }
 
     /**

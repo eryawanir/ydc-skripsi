@@ -7,7 +7,21 @@
         </flux:subheading>
         <flux:separator variant="subtle" />
     </div>
-
+        @if (session('status'))
+            <div
+                x-data="{ show: true }"
+                x-init="setTimeout(() => show = false, 1850)"
+                x-show="show"
+                x-transition.opacity.duration.500ms
+                class="mt-4"
+            >
+                <flux:callout
+                    variant="success"
+                    icon="check-circle"
+                    heading="{{ session('status') }}"
+                />
+            </div>
+        @endif
     {{-- TABEL --}}
     <div wire:poll.visible.5s class="px-3" >
         <flux:table class="max-w-1.5">

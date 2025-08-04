@@ -34,8 +34,8 @@ class ShowPatient extends Component
             'status' => 'menunggu',
         ]);
 
-        return redirect()->route('admin.patient.daftar-periksa')
-            ->with('status', 'Pendaftaran periksa berhasil.');
+        session()->flash('status', 'Pendaftaran periksa berhasil.');
+        return $this->redirectRoute('admin.patient.daftar-periksa', navigate:true);
     }
 
     public function render()
