@@ -23,7 +23,17 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+     if (Auth::check()) {
+        // Sudah login, redirect sesuai role
+        return match (Auth::user()->role->value) {
+            1 => redirect()->route('admin.patient.create'),
+            2  => redirect()->route('dokter.patient.daftar-periksa'),
+            3 => redirect()->route('manajemen.sortir-bagihasil'),
+        };
+    }
+
+    // Belum login, ke halaman login
+    return redirect()->route('login');
 })->name('home');
 
 Route::view('dashboard', 'dashboard')
