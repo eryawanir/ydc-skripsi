@@ -1,8 +1,8 @@
 <div>
     {{-- HEADER KONTEN --}}
     <div class="relative mb-4 w-full">
-        <flux:heading size="xl" level="1">Daftar Pasien</flux:heading>
-        <flux:subheading size="lg" class="mb-3">
+        <flux:heading size="xl" level="1" class="text-sky-700">Daftar Pasien</flux:heading>
+        <flux:subheading size="lg" class="mb-3 text-amber-700">
             Cari dan pilih pasien untuk merekap pemeriksaan
         </flux:subheading>
         <flux:separator variant="subtle" />
@@ -40,13 +40,14 @@
                                 </flux:link>
                             </flux:table.cell>
                             <flux:table.cell>
-                                <flux:button
-                                    size="xs"
+                                 <flux:button
+                                    size="sm"
+                                    variant="primary"
+                                    icon:trailing="arrow-right"
                                     class="me-3 my-0"
-                                    href="#">
-                                    Periksa
+                                    href="{{ route('admin.patient.show', ['patient' => $patient->id]) }}" wire:navigate>
+                                    Pilih
                                 </flux:button>
-                                <flux:button size="xs">Edit</flux:button>
                             </flux:table.cell>
 
                         </flux:table.row>
@@ -60,7 +61,7 @@
                 </flux:table.rows>
 
             </flux:table>
-            <flux:pagination :paginator="$patients" />
+            <flux:pagination :paginator="$patients" class="[&_*]:bg-amber-50" />
         </div>
     </div>
 </div>

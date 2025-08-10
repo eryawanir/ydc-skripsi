@@ -1,17 +1,17 @@
 <div>
-    <div class="relative mb-4 w-full">
-        <flux:heading size="xl" level="1">Pencarian Pasien</flux:heading>
-        <flux:subheading size="lg" class="mb-3">
+    <div class="relative mb-3 w-full">
+        <flux:heading size="xl" level="1" class="text-sky-700">Pencarian Pasien</flux:heading>
+        <flux:subheading size="lg" class=" text-amber-700">
             Cari dan pilih pasien untuk mendaftar pemeriksaan
         </flux:subheading>
         <flux:separator variant="subtle" />
     </div>
 
-    <div class="max-w-2xl space-y-4">
+    <div class="max-w-2xl space-y-2">
         {{-- Form Pencarian --}}
-        <div class="flex gap-4 items-end">
+        <label class="text-sm font-medium">Kata Kunci</label>
+        <div class="flex gap-4 items-end mt-1">
             <div class="flex flex-col w-full">
-                <label class="text-sm font-medium mb-1">Kata Kunci</label>
                 <flux:input
                     placeholder="Masukkan kata kunci nama pasien"
                     wire:model.defer="kataKunci"
@@ -29,8 +29,8 @@
                 />
             </div> --}}
             <flux:button
+                variant="primary"
                 icon="magnifying-glass"
-                class="mb-1"
                 wire:click="cari">
                 Cari
             </flux:button>
@@ -45,7 +45,7 @@
                     <flux:table.column>Nama</flux:table.column>
                     <flux:table.column>Skor</flux:table.column>
                     <flux:table.column>Jumlah kata <br>yang relevan</flux:table.column>
-                    <flux:table.column>Aksi</flux:table.column>
+                    <flux:table.column>Pilih</flux:table.column>
                 </flux:table.columns>
                 <flux:table.rows>
                     @forelse ($hasil as $index => $pasien)
@@ -58,7 +58,9 @@
 
                             <flux:table.cell>
                                 <flux:button
-                                    size="xs"
+                                    size="sm"
+                                    variant="primary"
+                                    icon:trailing="arrow-right"
                                     class="me-3 my-0"
                                     href="{{ route('admin.patient.show', ['patient' => $pasien['id']]) }}" wire:navigate>
                                     Pilih

@@ -61,7 +61,7 @@ $scored = Patient::query()
         [fn ($row) => strlen($row['nama']), 'asc'],
     ])
     ->values()
-    ->take(20);
+    ->take(7);
 
 
         $this->hasil = $scored->toArray();

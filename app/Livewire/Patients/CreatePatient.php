@@ -4,40 +4,36 @@ namespace App\Livewire\Patients;
 
 use App\Models\Patient;
 use Livewire\Component;
+use Livewire\Attributes\Validate;
 
 class CreatePatient extends Component
 {
+    #[Validate('required|regex:/^[a-zA-Z\s.,\']+$/')]
     public $nama_lengkap;
-    public $jenis_kelamin;
-    public $tempat_lahir;
-    public $tanggal_lahir;
-    public $no_hp;
-    public $nik;
-    public $alamat;
 
-    protected $rules = [
-        'nama_lengkap' => 'required|string|max:255',
-        'jenis_kelamin' => 'required|in:L,P',
-        'tempat_lahir' => 'nullable|string|max:255',
-        'tanggal_lahir' => 'nullable|date',
-        'no_hp' => 'nullable|string|max:15',
-        'nik' => 'nullable|string|max:16',
-        'alamat' => 'nullable|string',
-    ];
+    #[Validate('required|in:L,P')]
+    public $jenis_kelamin;
+
+    #[Validate('required')]
+    public $tempat_lahir;
+
+    #[Validate('required')]
+    public $tanggal_lahir;
+
+    #[Validate('required|regex:/^08\d{8,13}$/')]
+    public $no_hp;
+
+    #[Validate('required|regex:/^\d+$/', as: 'NIK')]
+    public $nik;
+
+    #[Validate('required')]
+    public $alamat;
 
     public function simpan()
     {
         $this->validate();
 
-        $patient = Patient::create([
-            'nama_lengkap' => $this->nama_lengkap,
-            'jenis_kelamin' => $this->jenis_kelamin,
-            'tempat_lahir' => $this->tempat_lahir,
-            'tanggal_lahir' => $this->tanggal_lahir,
-            'no_hp' => $this->no_hp,
-            'nik' => $this->nik,
-            'alamat' => $this->alamat,
-        ]);
+        $patient = Patient::create($this->all());
 
         session()->flash('status', 'Data pasien berhasil disimpan.');
         return redirect()->route('admin.patient.show', ['patient' => $patient->id]);
@@ -46,6 +42,6 @@ class CreatePatient extends Component
 
     public function render()
     {
-        return view('livewire.patients.create-patient');
+        return view('livewire.patients.create-patient')->with('title', 'Pendaftaran Pasien');
     }
 }

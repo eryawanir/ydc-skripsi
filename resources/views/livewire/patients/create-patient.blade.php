@@ -1,7 +1,8 @@
+<x-slot:title>{{ $title }}</x-slot>
 <div>
     <div class="relative mb-2 w-full">
-        <flux:heading size="xl" level="1">Pendaftaran Pasien Baru</flux:heading>
-        <flux:subheading size="lg" class="mb-3">
+        <flux:heading size="xl" level="1" class="text-sky-700">{{ $title ?? 'Page Title' }}</flux:heading>
+        <flux:subheading size="lg" class="mb-3" class="text-amber-700">
             Memasukan data identitas pasien baru untuk pemeriksaan
         </flux:subheading>
         <flux:separator variant="subtle" />
@@ -26,12 +27,10 @@
 
                 <div class="flex-1 min-w-[160px]">
                     <flux:input label="Tempat Lahir" wire:model.defer="tempat_lahir" />
-                    <flux:error name="tempat_lahir" />
                 </div>
 
                 <div class="flex-1 min-w-[160px]">
                     <flux:input type="date" label="Tanggal Lahir" wire:model.defer="tanggal_lahir" />
-                    <flux:error name="tanggal_lahir" />
                 </div>
             </div>
 
@@ -39,21 +38,18 @@
             <div class="flex flex-wrap gap-4">
                 <div class="flex-1 min-w-[160px]">
                     <flux:input label="No. HP" wire:model.defer="no_hp" />
-                    <flux:error name="no_hp" />
                 </div>
 
                 <div class="flex-1 min-w-[160px]">
                     <flux:input label="NIK" wire:model.defer="nik" />
-                    <flux:error name="nik" />
                 </div>
             </div>
 
             {{-- Alamat --}}
             <flux:textarea label="Alamat" rows="2" wire:model.defer="alamat" />
-            <flux:error name="alamat" />
 
             <div class="pt-4 flex justify-end">
-                <flux:button type="submit">
+                <flux:button type="submit" variant="primary">
                     Simpan Data Pasien
                 </flux:button>
             </div>
