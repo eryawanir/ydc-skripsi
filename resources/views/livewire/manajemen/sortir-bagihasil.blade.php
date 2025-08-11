@@ -2,8 +2,8 @@
 
     {{-- HEADER --}}
     <div class="space-y-2">
-        <flux:heading size="xl" level="1">Sortir Bagi Hasil</flux:heading>
-        <flux:subheading size="lg" class="mb-3">
+        <flux:heading size="xl" level="1" class="text-sky-700">Sortir Bagi Hasil</flux:heading>
+        <flux:subheading size="lg" class="mb-3 text-amber-700">
             Daftar bagi hasil antara dokter dan klinik berdasarkan layanan.
         </flux:subheading>
         <flux:separator variant="subtle" />
@@ -29,7 +29,7 @@
     />
 
     {{-- TOMBOL --}}
-    <flux:button  wire:click="ambilDataRekap">
+    <flux:button variant="primary"  wire:click="ambilDataRekap">
         Terapkan Filter
     </flux:button>
 
@@ -38,29 +38,29 @@
 
     {{-- RINGKASAN --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-        <flux:card>
-            <flux:heading size="md">Kunjungan Pasien</flux:heading>
-            <flux:heading size="xl" class="text-gray-300 font-extrabold">{{ $totalKunjungan }}</flux:heading>
+        <flux:card class="!bg-amber-100 !border-0">
+            <flux:heading size="md" class="text-amber-700">Kunjungan Pasien</flux:heading>
+            <flux:heading size="xl" class="text-sky-700 font-extrabold">{{ $totalKunjungan }}</flux:heading>
         </flux:card>
 
-        <flux:card>
-            <flux:heading size="md">Tindakan</flux:heading>
-            <flux:heading size="xl" class="text-gray-300 font-extrabold">{{ $totalTindakan }}</flux:heading>
+        <flux:card class="!bg-amber-100 !border-0">
+            <flux:heading size="md" class="text-amber-700">Tindakan</flux:heading>
+            <flux:heading size="xl" class="text-sky-700 font-extrabold">{{ $totalTindakan }}</flux:heading>
         </flux:card>
 
-        <flux:card>
-            <flux:heading size="md">Total Masuk</flux:heading>
-            <flux:heading size="lg" class="text-gray-300 font-extrabold">Rp {{ number_format($totalMasuk, 0, ',', '.') }}</flux:heading>
+        <flux:card class="!bg-amber-100 !border-0">
+            <flux:heading size="md" class="text-amber-700">Total Masuk</flux:heading>
+            <flux:heading size="lg" class="text-sky-700 font-extrabold">Rp {{ number_format($totalMasuk, 0, ',', '.') }}</flux:heading>
         </flux:card>
 
-        <flux:card>
-            <flux:heading size="md">Dokter</flux:heading>
-            <flux:heading size="lg" class="text-gray-300 font-extrabold">Rp {{ number_format($totalDokter, 0, ',', '.') }}</flux:heading>
+        <flux:card class="!bg-amber-100 !border-0">
+            <flux:heading size="md" class="text-amber-700">Dokter</flux:heading>
+            <flux:heading size="lg" class="text-sky-700 font-extrabold">Rp {{ number_format($totalDokter, 0, ',', '.') }}</flux:heading>
         </flux:card>
 
-        <flux:card>
-            <flux:heading size="md">Klinik</flux:heading>
-            <flux:heading size="lg" class="text-gray-300 font-extrabold">Rp {{ number_format($totalKlinik, 0, ',', '.') }}</flux:heading>
+        <flux:card class="!bg-amber-100 !border-0">
+            <flux:heading size="md" class="text-amber-700">Klinik</flux:heading>
+            <flux:heading size="lg" class="text-sky-700 font-extrabold">Rp {{ number_format($totalKlinik, 0, ',', '.') }}</flux:heading>
         </flux:card>
     </div>
 

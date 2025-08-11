@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
              UserSeeder::class,
              PatientSeeder::class,
              LayananSeeder::class,
+             PeriksaSeeder::class,
+             TindakanSeeder::class,
         ]);
 
     }

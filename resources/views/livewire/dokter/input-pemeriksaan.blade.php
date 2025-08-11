@@ -2,8 +2,8 @@
 
     {{-- HEADER --}}
     <div class="space-y-1">
-        <flux:heading size="xl">Input Pemeriksaan</flux:heading>
-        <flux:subheading size="lg">
+        <flux:heading size="xl" class="text-sky-700">Input Pemeriksaan</flux:heading>
+        <flux:subheading size="lg" class="text-amber-700">
             {{ $periksa->patient->nama_lengkap }},
            {{ $periksa->patient->jenis_kelamin === 'L' ? 'Laki-laki' : 'Perempuan' }}
           @if ($periksa->patient->tanggal_lahir)
@@ -40,7 +40,7 @@
                 <flux:heading size="md">Daftar Tindakan</flux:heading>
 
                 <flux:modal.trigger name="tambah-tindakan">
-                    <flux:button size="sm" variant="outline" icon="plus">
+                    <flux:button size="sm" variant="primary" icon="plus">
                         Tambah Tindakan
                     </flux:button>
                 </flux:modal.trigger>
@@ -80,7 +80,7 @@
 
                     <div class="flex">
                         <flux:spacer />
-                        <flux:button wire:click="simpanTindakan">
+                        <flux:button variant="primary" wire:click="simpanTindakan">
                             Tambah
                         </flux:button>
                     </div>
@@ -123,7 +123,7 @@
 
         {{-- TOMBOL SELESAI --}}
         <div class="pt-1 flex justify-end">
-            <flux:button wire:click="simpan">
+            <flux:button variant="primary" wire:click="simpan">
                 Pemeriksaan selesai
             </flux:button>
         </div>
