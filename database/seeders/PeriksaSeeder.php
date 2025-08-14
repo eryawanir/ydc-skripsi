@@ -109,7 +109,7 @@ class PeriksaSeeder extends Seeder
                 'patient_id'       => $patient->id, // <— pakai ->id
                 'dokter_id'        => 2,
                 'keluhan'          => $faker->randomElement($keluhanChoices),
-                'diagnosa'         => $faker->randomElement($diagnosaChoices),
+                'diagnosa'         => '',
                 'waktu_kedatangan' => $randomTime,
                 'status'           => 'menunggu',
                 'created_at'       => now(),

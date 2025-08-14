@@ -26,6 +26,7 @@
         with-presets
         placeholder="Pilih rentang waktu"
         wire:model.defer="tanggalRange"
+        :accent="false"
     />
 
     {{-- TOMBOL --}}

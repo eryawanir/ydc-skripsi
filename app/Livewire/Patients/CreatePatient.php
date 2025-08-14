@@ -3,6 +3,7 @@
 namespace App\Livewire\Patients;
 
 use App\Models\Patient;
+use Flux\Flux;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 
@@ -34,14 +35,15 @@ class CreatePatient extends Component
         $this->validate();
 
         $patient = Patient::create($this->all());
+        Flux::toast(variant:'success',text:'Data pasien berhasil didaftarkan');
 
         session()->flash('status', 'Data pasien berhasil disimpan.');
-        return redirect()->route('admin.patient.show', ['patient' => $patient->id]);
+        return $this->redirectRoute('admin.patient.show', ['patient' => $patient->id], navigate:true);
 
     }
 
     public function render()
     {
-        return view('livewire.patients.create-patient')->with('title', 'Pendaftaran Pasien');
+        return view('livewire.patients.create-patient')->with('title', 'Pendaftaran Pasien Baru');
     }
 }

@@ -9,7 +9,7 @@
 
 
     <div class="max-w-xl">
-        @if (session('status'))
+        {{-- @if (session('status'))
             <div
                 x-data="{ show: true }"
                 x-init="setTimeout(() => show = false, 1850)"
@@ -23,7 +23,7 @@
                     heading="{{ session('status') }}"
                 />
             </div>
-        @endif
+        @endif --}}
         <flux:table>
             <flux:table.rows>
                 <flux:table.row class="font-bold">

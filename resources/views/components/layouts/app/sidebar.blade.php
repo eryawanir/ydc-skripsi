@@ -13,7 +13,7 @@
 
             @if(auth()->user()->role->name == 'Admin')
             <flux:navlist variant="outline">
-                <flux:navlist.group heading="KELOLA PASIEN" class="grid">
+                <flux:navlist.group heading="AKUN ADMIN" class="grid">
                     <flux:navlist.item
                         icon="user-plus"
                         :href="route('admin.patient.create')"
@@ -24,9 +24,9 @@
                     <flux:navlist.item
                         icon="list-bullet"
                         :href="route('admin.patient.index')"
-                        :current="request()->routeIs('admin.patient.index')"
+                        :current="request()->routeIs(['admin.patient.index', 'admin.patient.show'])"
                         wire:navigate>
-                        Pasien Lama
+                        Data Pasien
                     </flux:navlist.item>
                     <flux:navlist.item
                         icon="magnifying-glass"
@@ -198,7 +198,7 @@
 
         {{ $slot }}
         @persist('toast')
-        <flux:toast position="bottom left" class="ps-72"/>
+        <flux:toast position="top right" class="pe-[520px] pt-24"/>
         @endpersist
         @fluxScripts
     </body>

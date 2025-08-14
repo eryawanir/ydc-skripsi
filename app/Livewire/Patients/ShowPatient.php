@@ -53,7 +53,7 @@ class ShowPatient extends Component
         ]));
 
         Flux::modal('edit')->close();
-        Flux::toast(variant:'success',text:'Your changes have been saved.');
+        Flux::toast(variant:'success',text:'Data berhasil di edit');
     }
 
     public function simpanPeriksa()
@@ -72,7 +72,6 @@ class ShowPatient extends Component
             'status' => 'menunggu',
         ]);
 
-        session()->flash('status', 'Pendaftaran periksa berhasil.');
         return $this->redirectRoute('admin.patient.daftar-periksa', navigate:true);
     }
 

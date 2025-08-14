@@ -15,6 +15,7 @@ class Periksa extends Model
         'patient_id',
         'dokter_id',
         'keluhan',
+        'diagnosa',
         'waktu_kedatangan',
         'status',
     ];

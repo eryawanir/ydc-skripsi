@@ -34,6 +34,7 @@
             size="xs"
             variant="outline"
             :href="route('dokter.patient.input-pemeriksaan', ['periksaId' => $periksa->id])"
+            wire:navigate
         >
             Mulai Periksa
         </flux:button>
@@ -43,6 +44,7 @@
             variant="primary"
             icon:trailing="arrow-right"
              :href="route('dokter.patient.input-pemeriksaan', ['periksaId' => $periksa->id])"
+             wire:navigate
         >
             Lanjut Periksa
         </flux:button>

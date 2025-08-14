@@ -28,7 +28,7 @@
             <flux:textarea
                 label="Keterangan Diagnosa"
                 rows="2"
-                wire:model.defer="diagnosa"
+                wire:model="diagnosa"
             />
         </div>
 
