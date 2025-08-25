@@ -12,11 +12,15 @@
         <label class="text-sm font-medium">Kata Kunci</label>
         <div class="flex gap-4 items-end mt-1">
             <div class="flex flex-col w-full">
-                <flux:input
+
+                <flux:field>
+                    <flux:input
                     placeholder="Masukkan kata kunci nama pasien"
-                    wire:model.defer="kataKunci"
+                    wire:model="kataKunci"
                     wire:keydown.enter="cari"
-                />
+                    />
+                    <flux:error name="kataKunci" />
+                </flux:field>
             </div>
             {{-- <div class="flex flex-col w-48">
                 <label class="text-sm font-medium mb-1">Nilai Threshold</label>
@@ -29,6 +33,7 @@
                 />
             </div> --}}
             <flux:button
+                class="self-start"
                 variant="primary"
                 icon="magnifying-glass"
                 wire:click="cari">

@@ -11,6 +11,19 @@ class LevenshteinListPatient extends Component
     public array  $hasil     = [];
     public int $threshold = 3; // toleransi salah eja per-kata
 
+        /* ================== VALIDATION ================== */
+
+    // Aturan: wajib, dan maksimal 3 kata (apa pun isinya, asal dipisah spasi)
+    protected $rules = [
+        'kataKunci' => ['required', 'regex:/^(\S+\s*){1,3}$/u'],
+    ];
+
+    // Pesan error
+    protected $messages = [
+        'kataKunci.required' => 'Kata kunci wajib diisi.',
+        'kataKunci.regex'    => 'Maksimal 3 kata saja.',
+    ];
+
     /*  Konstanta algoritma  */
     private const PENALTI_GAGAL  = 3; // penalti jika kata input tak punya pasangan ≤ THRESHOLD
     private const PENALTI_SISA   = 1; // penalti per token pasien yang tak terpakai
@@ -38,6 +51,7 @@ class LevenshteinListPatient extends Component
     /** Dipanggil ketika tombol / Enter ditekan */
     public function cari(): void
     {
+        $this->validate();
         $inputBersih = $this->normalize($this->kataKunci);
         if ($inputBersih === '') {
             $this->hasil = [];
