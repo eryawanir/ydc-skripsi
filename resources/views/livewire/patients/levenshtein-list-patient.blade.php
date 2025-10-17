@@ -43,7 +43,7 @@
         @if ($kataKunci !== '')
                     {{-- Tabel Hasil --}}
         <div class="px-3">
-            <flux:table class="max-w-1.5">
+            <flux:table>
                 <flux:table.columns>
                     <flux:table.column>#</flux:table.column>
                     <flux:table.column>ID</flux:table.column>
@@ -54,7 +54,7 @@
                 </flux:table.columns>
                 <flux:table.rows>
                     @forelse ($hasil as $index => $pasien)
-                        <flux:table.row>
+                        <flux:table.row :key="$pasien['id']">
                             <flux:table.cell>{{ $index + 1 }}</flux:table.cell>
                             <flux:table.cell>P - {{ $pasien['id'] ?? '-' }}</flux:table.cell>
                             <flux:table.cell>{{ $pasien['nama'] }}</flux:table.cell>

@@ -1,21 +1,23 @@
 <div>
     {{-- HEADER --}}
-    <div class="relative mb-4 w-full">
-        <flux:heading size="xl" level="1">Daftar Akun</flux:heading>
-        <flux:subheading size="lg" class="mb-3">
-            Kelola akun pengguna sesuai peran yang tersedia
+    <div class="space-y-2 mb-3">
+        <flux:heading size="xl" level="1" class="text-sky-700">Kelola Akun</flux:heading>
+        <flux:subheading size="lg" class=" text-amber-700">
+            Daftar akun sistem informasi Klinik Yusti Dental Care
         </flux:subheading>
         <flux:separator variant="subtle" />
     </div>
 
-    {{-- TOMBOL TAMBAH --}}
-    <div class="mb-4">
-        <flux:button wire:click="$set('formVisible', true)">Tambah Akun</flux:button>
-    </div>
+    {{-- TOMBOL TAMBAH (MODAL TRIGGER) --}}
+    <flux:modal.trigger name="form-akun">
+        <flux:button icon="plus" variant="primary">
+            Tambah Akun
+        </flux:button>
+    </flux:modal.trigger>
 
     {{-- TABEL USER --}}
-    <div class="px-3">
-        <flux:table class="max-w-1.5">
+    <div class="max-w-2xl">
+        <flux:table>
             <flux:table.columns>
                 <flux:table.column>#</flux:table.column>
                 <flux:table.column>Nama</flux:table.column>
@@ -32,10 +34,12 @@
                         <flux:table.cell>{{ $user->email }}</flux:table.cell>
                         <flux:table.cell>{{ $user->role->label() }}</flux:table.cell>
                         <flux:table.cell>
-                            <flux:button size="xs" class="me-2" wire:click="edit({{ $user->id }})">
-                                Edit
-                            </flux:button>
-                            <flux:button size="xs" variant="danger" wire:click="confirmDelete({{ $user->id }})">
+                            <flux:modal.trigger name="form-akun">
+                                <flux:button size="xs" variant="primary" class="me-2" wire:click="edit({{ $user->id }})">
+                                    Edit
+                                </flux:button>
+                            </flux:modal.trigger>
+                            <flux:button size="xs" variant="danger" wire:click="confirmHapus({{ $user->id }})">
                                 Hapus
                             </flux:button>
                         </flux:table.cell>
@@ -52,7 +56,13 @@
     </div>
 
     {{-- MODAL FORM TAMBAH/EDIT --}}
-    <flux:modal wire:model="formVisible" title="{{ $editingId ? 'Edit Akun' : 'Tambah Akun' }}">
+    <flux:modal class="!bg-amber-50" name="form-akun">
+
+        <div class="mb-3">
+            <flux:heading size="lg" class="text-sky-700">Tambah Akun</flux:heading>
+            <flux:text class="mt-2 text-amber-700">Silahkan isi data akun dengan sesuai</flux:text>
+        </div>
+
         <div class="flex flex-col md:flex-row gap-4">
             <div x-data="{ role: @entangle('role') }" class="space-y-4">
                 {{-- Kiri --}}
@@ -86,10 +96,52 @@
 
                 {{-- Tombol --}}
                 <div class="flex justify-end gap-2">
-                    <flux:button variant="subtle" wire:click="$set('formVisible', false)">Batal</flux:button>
-                    <flux:button wire:click="save">Simpan</flux:button>
+                    <flux:button variant="primary" wire:click="save">Simpan</flux:button>
                 </div>
             </div>
         </div>
     </flux:modal>
+    <flux:modal name="unallowed-delete-akun" class="min-w-[18rem] !bg-amber-50">
+    <div class="space-y-4">
+        <div>
+            <flux:heading size="lg" class="flex items-center gap-1">
+                <flux:icon.x-circle class="text-red-500 size-6" />
+                Akun tidak bisa dihapus
+            </flux:heading>
+
+            <flux:text class="mt-2">
+                <p>Akun ini dilarang dihapus</p>
+                <p>Tindakan hapus tidak dapat dilakukan.</p>
+            </flux:text>
+        </div>
+
+        <div class="flex justify-center">
+
+            <flux:modal.close>
+                <flux:button variant="primary">Ok</flux:button>
+            </flux:modal.close>
+
+        </div>
+    </div>
+</flux:modal>
+
+
+<flux:modal name="konfirmasi-hapus-akun" class="min-w-[22rem] !bg-amber-50">
+    <div class="space-y-6">
+        <div>
+            <flux:heading size="lg">Hapus Akun?</flux:heading>
+            <flux:text class="mt-2">
+                <p>Anda akan menghapus akun ini</p>
+                <p>Aksi anda tidak dapat dibatalkan.</p>
+            </flux:text>
+        </div>
+        <div class="flex gap-2">
+            <flux:spacer />
+            <flux:modal.close>
+                <flux:button variant="ghost">Cancel</flux:button>
+            </flux:modal.close>
+            <flux:button wire:click="delete" variant="danger">Hapus Akun</flux:button>
+        </div>
+    </div>
+</flux:modal>
 </div>

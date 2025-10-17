@@ -27,8 +27,8 @@ Route::get('/', function () {
         // Sudah login, redirect sesuai role
         return match (Auth::user()->role->value) {
             1 => redirect()->route('admin.patient.create'),
-            2  => redirect()->route('dokter.patient.daftar-periksa'),
-            3 => redirect()->route('manajemen.sortir-bagihasil'),
+            3  => redirect()->route('dokter.patient.daftar-periksa'),
+            2 => redirect()->route('manajemen.sortir-bagihasil'),
         };
     }
 

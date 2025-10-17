@@ -70,4 +70,21 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Dokter::class);
     }
+    public function hasDokter(): bool
+{
+    return $this->dokter()->exists();
+}
+
+public function hasPeriksa(): bool
+{
+    // Kalau dokter ada, cek apakah ada periksa
+    return $this->dokter && $this->dokter->periksas()->exists();
+}
+
+public function hasDokterWithoutPeriksa(): bool
+{
+    // Punya dokter, tapi tidak ada periksa
+    return $this->dokter && !$this->dokter->periksas()->exists();
+}
+
 }

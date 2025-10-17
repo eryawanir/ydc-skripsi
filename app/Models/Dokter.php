@@ -32,6 +32,9 @@ class Dokter extends Model
         return $this->hasOne(User::class);
     }
 
+    public function periksas(){
+        return $this->hasMany(Periksa::class);
+    }
     protected $casts = [
         'tipe_dokter' => TipeDokter::class,
     ];

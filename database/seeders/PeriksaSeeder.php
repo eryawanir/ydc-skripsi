@@ -39,7 +39,7 @@ class PeriksaSeeder extends Seeder
 
         // Helper: waktu kedatangan normal (Oktober 2024 - Juni 2025)
         $randomDate = function () use ($faker) {
-            return $faker->dateTimeBetween('2024-10-01', '2025-08-08');
+            return $faker->dateTimeBetween('2024-10-01', '2025-09-12');
         };
 
         // 1) Semua pasien: 1 periksa, status selesai
